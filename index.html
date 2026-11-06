@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   PsicoApoio &mdash; Sa&uacute;de emocional e acolhimento
+  </title>
+  <meta content="PsicoApoio: espa&ccedil;o educativo para autoconhecimento, sa&uacute;de emocional e caminhos para buscar apoio." name="description"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   :root {
+  --pa-roxo:#7441c9;
+  --pa-lilas:#8b5cf6;
+  --pa-suave:#f6f0ff;
+  --pa-escuro:#35205f;
+  --pa-texto:#342b3f;
+  --pa-borda:#e6ddf7
+}
+html {
+  scroll-behavior:smooth
+}
+body {
+  margin:0;
+  font-family:Poppins,Arial,sans-serif;
+  color:var(--pa-texto);
+  background:#ffffff;
+  line-height:1.6
+}
+section[id] {
+  scroll-margin-top:110px
+}
+header {
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:linear-gradient(135deg,#7c3aed,#a855f7);
+  color:#fff;
+  padding:12px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  box-shadow:0 3px 15px #4c1d9530
+}
+header .logo {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0
+}
+header .logo img {
+  width:56px;
+  height:56px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:14px;
+  padding:3px
+}
+header .logo h2 {
+  margin:0;
+  color:white
+}
+header nav {
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  gap:14px
+}
+header nav a {
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  margin:0
+}
+header nav a:hover {
+  text-decoration:underline
+}
+#tema {
+  border:1px solid #ffffff80;
+  background:#ffffff20;
+  color:white;
+  border-radius:10px;
+  padding:9px 12px;
+  cursor:pointer;
+  font-size:1.05rem
+}
+.hero {
+  padding:72px 7%;
+  background:#ffffff;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:35px;
+  align-items:center
+}
+.hero h1 {
+  font-size:clamp(2.2rem,5vw,4rem);
+  color:var(--pa-escuro);
+  line-height:1.12
+}
+.btn {
+  display:inline-block;
+  background:var(--pa-roxo);
+  color:white;
+  padding:12px 19px;
+  border-radius:12px;
+  text-decoration:none;
+  border:0;
+  font-weight:700;
+  cursor:pointer;
+  margin:5px
+}
+.btn.secondary {
+  background:white;
+  color:var(--pa-roxo);
+  border:2px solid var(--pa-roxo)
+}
+.emergency {
+  background:#5b21b6;
+  color:#fff;
+  padding:18px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px
+}
+.call {
+  display:inline-block;
+  background:#fff;
+  color:#5b21b6;
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none;
+  margin:3px
+}
+section {
+  padding:60px 7%
+}
+.title {
+  text-align:center;
+  color:var(--pa-escuro);
+  font-size:2rem
+}
+.subtitle {
+  text-align:center;
+  max-width:760px;
+  margin:0 auto 35px
+}
+.cards {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px
+}
+.card {
+  background:white;
+  border:1px solid var(--pa-borda);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 8px 25px #6d28d914
+}
+.card h2,.card h3 {
+  color:#6d28d9
+}
+.icon {
+  font-size:2rem
+}
+.quiz-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px
+}
+.quiz-card {
+  background:linear-gradient(145deg,#fff,#f5edff);
+  border:1px solid #dfccff;
+  border-radius:18px;
+  padding:22px
+}
+.prof-wrap {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px
+}
+.searchbox {
+  background:#f1e9ff;
+  border-radius:18px;
+  padding:24px
+}
+.searchbox input,.searchbox select,.contact-input {
+  box-sizing:border-box;
+  width:100%;
+  padding:12px;
+  margin:7px 0;
+  border:1px solid #d7c5f2;
+  border-radius:10px;
+  font:inherit
+}
+.notice {
+  font-size:.9rem;
+  background:#fff7e6;
+  border-left:4px solid #e5a51c;
+  padding:12px;
+  margin-top:15px
+}
+.official {
+  background:#fff;
+  border-radius:18px;
+  padding:24px;
+  border:1px solid var(--pa-borda)
+}
+#quiz-app {
+  --painel:#fff;
+  --suave:#f5f1ff;
+  --borda:#e6ddf7;
+  --muted:#6c617d;
+  --roxo:#7441c9;
+  max-width:860px;
+  margin:auto;
+  background:white;
+  border:1px solid var(--pa-borda);
+  border-radius:24px;
+  padding:32px;
+  box-shadow:0 16px 55px #5225900a
+}
+#quiz-app .etiqueta {
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  color:var(--roxo);
+  letter-spacing:1.3px
+}
+#quiz-app h1 {
+  font-size:clamp(25px,4vw,36px);
+  line-height:1.25;
+  margin:20px 0 14px;
+  color:var(--pa-escuro)
+}
+#quiz-app h2 {
+  font-size:21px;
+  line-height:1.35
+}
+#quiz-app h3 {
+  font-size:15px;
+  margin-bottom:4px;
+  color:var(--roxo)
+}
+#quiz-app .catalogo {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-top:30px
+}
+#quiz-app .quiz-card {
+  padding:24px;
+  border-radius:18px;
+  background:var(--suave);
+  border:1px solid var(--borda);
+  display:flex;
+  flex-direction:column
+}
+#quiz-app .quiz-card p {
+  flex:1
+}
+#quiz-app .icone {
+  font-size:38px
+}
+#quiz-app button {
+  font:inherit;
+  border:0;
+  border-radius:12px;
+  padding:12px 18px;
+  background:#7441c9;
+  color:white;
+  cursor:pointer;
+  transition:background .15s
+}
+#quiz-app button:hover:not(:disabled) {
+  background:#602bae
+}
+#quiz-app button:focus-visible,#quiz-app a:focus-visible,button:focus-visible,a:focus-visible {
+  outline:3px solid #f59e0b;
+  outline-offset:4px
+}
+#quiz-app button:disabled {
+  opacity:.45;
+  cursor:not-allowed
+}
+#quiz-app .quiz-card button {
+  margin-top:20px
+}
+#quiz-app .link {
+  padding:0;
+  background:none;
+  color:var(--roxo);
+  margin-bottom:25px
+}
+#quiz-app .link:hover:not(:disabled) {
+  background:var(--suave)
+}
+#quiz-app .progresso-info {
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:13px;
+  margin:22px 0 8px
+}
+#quiz-app .barra {
+  height:8px;
+  background:var(--borda);
+  border-radius:20px;
+  overflow:hidden
+}
+#quiz-app .barra>div {
+  height:100%;
+  background:#9870e4;
+  border-radius:20px
+}
+#quiz-app .opcao {
+  display:block;
+  width:100%;
+  margin:12px 0;
+  text-align:left;
+  background:#fff;
+  color:inherit;
+  border:2px solid var(--borda);
+  padding:16px 18px
+}
+#quiz-app .opcao:hover:not(:disabled) {
+  background:var(--suave);
+  border-color:var(--roxo)
+}
+#quiz-app .opcao.selecionada {
+  background:#7441c9 !important;
+  color:#fff !important;
+  border:3px solid #54209b !important;
+  box-shadow:0 0 0 3px rgba(155,123,232,.28), 0 8px 20px rgba(84,32,155,.22) !important;
+  font-weight:700;
+  transform:translateY(-2px);
+  position:relative;
+  padding-right:54px
+}
+#quiz-app .opcao.selecionada::after {
+  content:"✓";
+  position:absolute;
+  right:18px;
+  top:50%;
+  transform:translateY(-50%);
+  display:grid;
+  place-items:center;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  background:#fff;
+  color:#54209b;
+  font-size:17px;
+  font-weight:800
+}
+body.tema-escuro #quiz-app .opcao.selecionada {
+  background:#9b7be8 !important;
+  color:#211632 !important;
+  border-color:#d8c8ff !important;
+  box-shadow:0 0 0 3px rgba(216,200,255,.25), 0 8px 22px rgba(0,0,0,.3) !important
+}
+body.tema-escuro #quiz-app .opcao.selecionada::after {
+  background:#2e2143;
+  color:#fff
+}
+#quiz-app .acoes {
+  display:flex;
+  gap:12px;
+  margin-top:28px
+}
+#quiz-app .acoes button {
+  flex:1
+}
+#quiz-app .secundario {
+  background:var(--suave);
+  color:var(--roxo);
+  border:1px solid var(--borda)
+}
+#quiz-app .secundario:hover:not(:disabled) {
+  background:var(--borda)
+}
+#quiz-app .resultado-emoji {
+  font-size:52px;
+  margin-top:20px
+}
+#quiz-app .perfil {
+  padding:24px;
+  background:var(--suave);
+  border-radius:16px;
+  margin:20px 0
+}
+#quiz-app .perfil h2 {
+  margin-top:0
+}
+#quiz-app .afinidades {
+  margin-top:30px;
+  padding:20px 0
+}
+#quiz-app .afinidades>p {
+  font-size:13px;
+  color:var(--muted)
+}
+#quiz-app .afinidade {
+  margin:16px 0
+}
+#quiz-app .afinidade>div:first-child {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:13px;
+  margin-bottom:6px
+}
+#quiz-app .inicio {
+  display:block;
+  text-align:center;
+  margin-top:20px
+}
+.resp-box {
+  text-align:center;
+  max-width:620px;
+  margin:auto;
+  background:white;
+  border-radius:24px;
+  padding:24px;
+  border:1px solid var(--pa-borda)
+}
+.resp-stage {
+  height:235px;
+  display:grid;
+  place-items:center
+}
+#circulo {
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#7c3aed,#c084fc);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-size:1.05rem;
+  font-weight:bold;
+  transition:transform 4s linear;
+  box-shadow:0 0 0 15px #ede9fe
+}
+#modal-palestra {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0008;
+  z-index:100;
+  align-items:center;
+  justify-content:center;
+  padding:20px
+}
+#modal-palestra>div {
+  max-height:85vh;
+  overflow:auto;
+  background:white;
+  max-width:540px;
+  width:100%;
+  padding:28px;
+  border-radius:18px;
+  position:relative;
+  color:var(--pa-texto)
+}
+#modal-fechar {
+  position:absolute;
+  right:15px;
+  top:10px;
+  border:0;
+  background:none;
+  color:#5b21b6;
+  font-size:24px;
+  cursor:pointer
+}
+footer {
+  background:#2e174f;
+  color:#eee;
+  padding:35px 7%
+}
+footer a {
+  color:#e9d5ff
+}
+.footer-grid {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:25px
+}
+.small {
+  font-size:.88rem
+}
+#contato-form {
+  max-width:700px;
+  margin:auto
+}
+#contato-form textarea {
+  min-height:120px;
+  resize:vertical
+}
+body.tema-escuro {
+  background:#000000;
+  color:#eee
+}
+body.tema-escuro section:not(.hero) {
+  background:#000000!important
+}
+body.tema-escuro .hero {
+  background:#000000
+}
+body.tema-escuro .hero h1,body.tema-escuro .title {
+  color:#e5d5ff
+}
+body.tema-escuro .card,body.tema-escuro .official,body.tema-escuro .resp-box,body.tema-escuro #quiz-app,body.tema-escuro #modal-palestra>div {
+  background:#302545;
+  color:#f5efff;
+  border-color:#51416b
+}
+body.tema-escuro .quiz-card,body.tema-escuro .searchbox,body.tema-escuro #quiz-app .perfil {
+  background:#382a50;
+  color:#f5efff
+}
+body.tema-escuro input,body.tema-escuro textarea,body.tema-escuro select {
+  background:#241b34;
+  color:white;
+  border-color:#62517b
+}
+
+@media(max-width:900px) {
+header {
+  align-items:flex-start;
+  flex-wrap:wrap
+}
+header nav {
+  justify-content:flex-start
+}
+.hero,.prof-wrap {
+  grid-template-columns:1fr
+}
+.cards,.footer-grid {
+  grid-template-columns:1fr 1fr
+}
+.emergency {
+  flex-direction:column;
+  align-items:flex-start
+}
+}
+
+@media(max-width:600px) {
+header {
+  position:relative
+}
+header nav {
+  gap:9px
+}
+header nav a {
+  font-size:.9rem
+}
+.hero {
+  padding:48px 6%
+}
+.cards,.quiz-grid,.footer-grid,#quiz-app .catalogo {
+  grid-template-columns:1fr
+}
+section {
+  padding:42px 6%
+}
+#quiz-app {
+  padding:24px 18px
+}
+#quiz-app .acoes {
+  flex-direction:column
+}
+#quiz-app .afinidade>div:first-child {
+  flex-wrap:wrap
+}
+.emergency {
+  padding:18px 6%
+}
+}
+.prof-resultados {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+  margin-top:16px
+}
+.prof-perfil {
+  display:grid;
+  grid-template-columns:100px 1fr;
+  align-items:start;
+  gap:15px;
+  background:#fff;
+  border:1px solid var(--pa-borda);
+  border-radius:14px;
+  padding:14px;
+  color:#342b3f;
+  box-shadow:0 5px 18px #6d28d90d
+}
+.prof-perfil img {
+  width:100px;
+  height:100px;
+  object-fit:cover;
+  object-position:center 35%;
+  border-radius:50%;
+  border:3px solid #eadfff;
+  background:#eee
+}
+.prof-perfil h4 {
+  margin:2px 0 5px;
+  color:#54209b;
+  font-size:1.05rem
+}
+.prof-perfil p {
+  margin:5px 0;
+  font-size:.92rem;
+  line-height:1.5
+}
+.prof-perfil .prof-area {
+  font-size:.82rem;
+  font-weight:700;
+  color:#7441c9
+}
+body.tema-escuro .prof-perfil {
+  background:#302545;
+  color:#f5efff;
+  border-color:#51416b
+}
+body.tema-escuro .prof-perfil h4 {
+  color:#e3d1ff
+}
+body.tema-escuro .prof-perfil .prof-area {
+  color:#d8c0ff
+}
+
+@media(max-width:500px) {
+.prof-perfil {
+  grid-template-columns:76px 1fr;
+  gap:12px;
+  padding:12px
+}
+.prof-perfil img {
+  width:76px;
+  height:76px
+}
+}
+/* Ajustes de contraste para facilitar a leitura em todos os temas */
+    .card p,.official p,.searchbox p,.resp-box p,.hero p,.subtitle {
+  color:#342b3f
+}
+.card h2,.card h3,.searchbox h3,.official h3 {
+  color:#54209b
+}
+.notice {
+  color:#493714;
+  background:#fff4d6
+}
+.contato-section {
+  max-width:900px;
+  margin:0 auto
+}
+#contato-form {
+  display:grid;
+  gap:8px;
+  background:#fff;
+  border:1px solid var(--pa-borda);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:0 8px 25px #6d28d914;
+  color:#342b3f
+}
+#contato-form label {
+  font-weight:600;
+  margin-top:5px
+}
+#contato-form .contact-input {
+  margin:0
+}
+footer {
+  background:#2e174f;
+  color:#eee;
+  padding:22px 7%;
+  text-align:center
+}
+footer p {
+  margin:0
+}
+body.tema-escuro .card p,body.tema-escuro .official p,body.tema-escuro .searchbox p,body.tema-escuro .resp-box p,body.tema-escuro .hero p,body.tema-escuro .subtitle {
+  color:#f2ecff
+}
+body.tema-escuro .card h2,body.tema-escuro .card h3,body.tema-escuro .searchbox h3,body.tema-escuro .official h3,body.tema-escuro #quiz-app h3 {
+  color:#d8c0ff
+}
+body.tema-escuro .notice {
+  background:#49391b;
+  color:#fff0c2;
+  border-left-color:#f2c45e
+}
+body.tema-escuro #contato-form {
+  background:#302545;
+  color:#f5efff;
+  border-color:#51416b
+}
+body.tema-escuro #contato-form .contact-input {
+  background:#241b34;
+  color:#fff;
+  border-color:#62517b
+}
+body.tema-escuro #quiz-app .opcao {
+  background:#241b34;
+  color:#f5efff;
+  border-color:#62517b
+}
+body.tema-escuro #quiz-app .opcao.selecionada {
+  background:#49366a;
+  border-color:#c4a5ff
+}
+body.tema-escuro #quiz-app .progresso-info,body.tema-escuro #quiz-app .afinidades>p {
+  color:#e0d5f2
+}
+body.tema-escuro #quiz-app .secundario {
+  background:#44335f;
+  color:#f5efff;
+  border-color:#756096
+}
+body.tema-escuro .btn.secondary {
+  background:#302545;
+  color:#e5d5ff;
+  border-color:#bda0f5
+}
+/* Contraste reforçado do quiz nos temas claro e escuro */
+    #quiz-app {
+  color:#292238;
+  background:#ffffff;
+  color-scheme:light
+}
+#quiz-app>p,#quiz-app .quiz-card p,#quiz-app .quiz-card small,#quiz-app .perfil p,#quiz-app .afinidade,
+    #quiz-app .pergunta,#quiz-app .progresso-info {
+  color:#342b3f
+}
+#quiz-app h1,#quiz-app h2,#quiz-app h3 {
+  color:#35205f
+}
+#quiz-app .opcao {
+  background:#fff;
+  color:#292238;
+  border-color:#c9b9e8
+}
+#quiz-app .opcao:hover:not(:disabled),#quiz-app .opcao.selecionada {
+  background:#eee5ff;
+  color:#24143f;
+  border-color:#6d28d9
+}
+#quiz-app .link {
+  color:#5b21b6
+}
+#quiz-app .secundario {
+  background:#eee5ff;
+  color:#4c1d95;
+  border-color:#b9a0e5
+}
+#quiz-app .barra {
+  background:#d8cce9
+}
+body.tema-escuro #quiz-app {
+  background:#21182f;
+  color:#f8f4ff;
+  border-color:#685486;
+  color-scheme:dark
+}
+body.tema-escuro #quiz-app>p,body.tema-escuro #quiz-app .quiz-card p,body.tema-escuro #quiz-app .quiz-card small,
+    body.tema-escuro #quiz-app .perfil p,body.tema-escuro #quiz-app .afinidade,body.tema-escuro #quiz-app .pergunta {
+  color:#f3edff
+}
+body.tema-escuro #quiz-app h1,body.tema-escuro #quiz-app h2,body.tema-escuro #quiz-app h3 {
+  color:#e6d5ff
+}
+body.tema-escuro #quiz-app .quiz-card,body.tema-escuro #quiz-app .perfil {
+  background:#302342;
+  color:#f8f4ff;
+  border-color:#665080
+}
+body.tema-escuro #quiz-app .opcao {
+  background:#251b35;
+  color:#f8f4ff;
+  border-color:#786394
+}
+body.tema-escuro #quiz-app .opcao:hover:not(:disabled),body.tema-escuro #quiz-app .opcao.selecionada {
+  background:#493466;
+  color:#fff;
+  border-color:#d0b8ff
+}
+body.tema-escuro #quiz-app .progresso-info,body.tema-escuro #quiz-app .afinidades>p {
+  color:#e9def8
+}
+body.tema-escuro #quiz-app .link {
+  color:#dfcaff
+}
+body.tema-escuro #quiz-app .secundario {
+  background:#44335f;
+  color:#fff;
+  border-color:#9278b4
+}
+body.tema-escuro #quiz-app .barra {
+  background:#514064
+}
+
+@media(prefers-reduced-motion:reduce) {
+html {
+  scroll-behavior:auto
+}
+#circulo {
+  transition:none
+}
+}
+/* Ajustes finais de aparência e responsividade */
+header {
+  background: #9b7be8 !important;
+  color: #fff !important;
+  padding: 12px 3% 12px 5%;
+  gap: 18px;
+}
+header .logo {
+  flex-shrink: 0;
+}
+header .logo img {
+  background: transparent !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  mix-blend-mode: multiply;
+  object-fit: contain;
+}
+header nav {
+  margin-left: auto;
+  justify-content: flex-end !important;
+  gap: 17px;
+}
+header .logo h2,
+header nav a {
+  color: #fff !important;
+}
+#tema {
+  flex-shrink: 0;
+  background: #805bcf !important;
+  color: #fff !important;
+  border: 1px solid #ffffff80 !important;
+}
+
+/* Tema escuro: grafite arroxeado, sem preto absoluto */
+body.tema-escuro,
+body.tema-escuro main,
+body.tema-escuro section:not(.cvv-link) {
+  background: #211a2b !important;
+  color: #f5efff !important;
+}
+body.tema-escuro .hero,
+body.tema-escuro .card,
+body.tema-escuro .official,
+body.tema-escuro .resp-box,
+body.tema-escuro #quiz-app,
+body.tema-escuro .quiz-card,
+body.tema-escuro .searchbox,
+body.tema-escuro #modal-palestra > div {
+  background: #30263d !important;
+  color: #f5efff !important;
+  border-color: #514263 !important;
+}
+body.tema-escuro .prof-perfil {
+  background: #382d47 !important;
+  color: #f5efff !important;
+  border-color: #5d4c70 !important;
+}
+body.tema-escuro .hero h1,
+body.tema-escuro .title,
+body.tema-escuro .card h2,
+body.tema-escuro .card h3,
+body.tema-escuro .searchbox h3,
+body.tema-escuro .prof-perfil h4 {
+  color: #e5d5ff !important;
+}
+body.tema-escuro input,
+body.tema-escuro select,
+body.tema-escuro textarea {
+  background: #241b30 !important;
+  color: #fff !important;
+  border-color: #625276 !important;
+}
+body.tema-escuro .btn.secondary {
+  background: #805bcf !important;
+  color: #fff !important;
+  border-color: #805bcf !important;
+}
+body.tema-escuro #tema {
+  background: #805bcf !important;
+  color: #fff !important;
+}
+
+/* Faixa do CVV mais clara e alinhada à esquerda */
+section.cvv-link,
+body.tema-escuro section.cvv-link {
+  width: 100%;
+  margin: 0 !important;
+  padding: 28px 7% !important;
+  background: #eee5ff !important;
+  color: #35205f !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  text-align: left !important;
+}
+.cvv-conteudo {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+.cvv-link h2,
+body.tema-escuro .cvv-link h2 {
+  margin: 0 0 8px;
+  color: #35205f !important;
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+}
+.cvv-link p,
+body.tema-escuro .cvv-link p {
+  color: #49385f !important;
+  margin: 0;
+  line-height: 1.6;
+}
+.cvv-selo,
+body.tema-escuro .cvv-selo {
+  color: #6743a4 !important;
+}
+.cvv-acoes {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+.cvv-ligar,
+body.tema-escuro .cvv-ligar {
+  background: #6f42b5 !important;
+  color: #fff !important;
+  padding: 11px 18px;
+  border-radius: 9px;
+  text-decoration: none !important;
+  font-weight: 800;
+}
+.cvv-site,
+body.tema-escuro .cvv-site {
+  color: #56318c !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px;
+  font-weight: 700;
+}
+
+/* Busca de profissionais centralizada; resultados só após clicar em Buscar */
+#profissionais .prof-wrap {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: block;
+}
+#profissionais .searchbox {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+#resultados-profissionais:empty {
+  display: none;
+}
+#resultados-profissionais {
+  width: 100%;
+  margin-top: 18px;
+}
+.prof-resultados {
+  width: 100%;
+  max-width: 780px;
+  margin: 16px auto 0;
+}
+.prof-placeholder {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px dashed #b9a0e5;
+  border-radius: 10px;
+  color: #6d568d;
+  background: #faf7ff;
+}
+body.tema-escuro .prof-placeholder {
+  background: #382d47;
+  color: #e5d5ff;
+  border-color: #655080;
+}
+.cards[aria-label="Ferramentas de bem-estar"] {
+  display: none !important;
+}
+@media (max-width: 900px) {
+  header {
+    justify-content: space-between;
+  }
+  header nav {
+    margin-left: auto;
+    justify-content: flex-end !important;
+  }
+  .cvv-conteudo {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+@media (max-width: 600px) {
+  header nav {
+    width: 100%;
+    margin-left: 0;
+    justify-content: flex-end !important;
+  }
+  .cvv-acoes {
+    align-items: flex-start;
+  }
+}
+
+/* Estilo da seção CVV transferida do index anterior */
+section.cvv {
+  background: #7441c9;
+  color: #fff;
+  text-align: center;
+  padding: 60px 7%;
+}
+section.cvv h2,
+section.cvv h1,
+section.cvv p {
+  color: #fff;
+}
+section.cvv h1 {
+  margin: 12px 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+section.cvv a button {
+  background: #fff;
+  color: #7441c9;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 22px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+body.tema-escuro section.cvv {
+  background: #000000 !important;
+  color: #fff !important;
+}
+
+
+/* Ajustes visuais solicitados */
+:root {
+  --pa-roxo: #9b7be8;
+  --pa-lilas: #9a77d1;
+  --pa-suave: #e9e9e9;
+  --pa-escuro: #54209b;
+}
+header {
+  background: #9b7be8 !important;
+}
+footer {
+  background: #9b7be8 !important;
+  color: #fff !important;
+}
+header .logo img {
+  width: 82px !important;
+  height: 82px !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+.hero {
+  grid-template-columns: 1fr !important;
+  text-align: center !important;
+}
+.hero-texto {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center !important;
+}
+.hero h1 {
+  color: #54209b !important;
+  text-align: center !important;
+}
+/* Botões com aparência consistente com os botões do quiz */
+button, .btn, a.btn, section.cvv a button {
+  background: #9b7be8 !important;
+  color: #fff !important;
+  border: 1px solid #9b7be8 !important;
+  border-radius: 10px !important;
+  padding: 11px 18px !important;
+  font-family: inherit !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+button:hover, .btn:hover, section.cvv a button:hover {
+  filter: brightness(.94);
+}
+#tema {
+  background: #2e2143 !important;
+  color: #fff !important;
+  border-color: #2e2143 !important;
+}
+section.cvv {
+  background: #e9e9e9 !important;
+  color: #54209b !important;
+  text-align: center !important;
+  padding: 32px 7% !important;
+}
+section.cvv h1, section.cvv h2, section.cvv p {
+  color: #54209b !important;
+}
+body.tema-escuro,
+body.tema-escuro main,
+body.tema-escuro section:not(.cvv-link) {
+  background: #261e33 !important;
+  color: #f5efff !important;
+}
+body.tema-escuro header,
+body.tema-escuro footer {
+  background: #2e2143 !important;
+}
+body.tema-escuro .hero,
+body.tema-escuro .card,
+body.tema-escuro .official,
+body.tema-escuro .resp-box,
+body.tema-escuro #quiz-app,
+body.tema-escuro .quiz-card,
+body.tema-escuro .searchbox,
+body.tema-escuro #modal-palestra > div {
+  background: #261e33 !important;
+  color: #f5efff !important;
+}
+body.tema-escuro .hero h1,
+body.tema-escuro .title {
+  color: #9a77d1 !important;
+}
+body.tema-escuro header .logo img {
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
+}
+
+body.tema-escuro section.cvv h1,
+body.tema-escuro section.cvv h2,
+body.tema-escuro section.cvv p {
+  color: #fff !important;
+}
+body.tema-escuro button,
+body.tema-escuro .btn,
+body.tema-escuro a.btn,
+body.tema-escuro section.cvv a button {
+  background: #9a77d1 !important;
+  color: #fff !important;
+  border-color: #9a77d1 !important;
+}
+body.tema-escuro #tema {
+  background: #9b7be8 !important;
+  color: #261e33 !important;
+  border-color: #9b7be8 !important;
+}
+
+.frase-card {
+  min-height:220px; padding:30px; border-radius:22px;
+  background:#f1eafa; border:1px solid #e2d4f5;
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; text-align:center;
+  box-shadow:0 12px 28px rgba(84,32,155,.10);
+}
+.frase-card .frase-icone {font-size:2rem; margin-bottom:8px}
+.frase-card p {font-size:1.25rem; line-height:1.6; font-weight:600; color:#54209b; margin:8px 0 18px}
+.frase-card .btn {margin:0; background:#9b7be8; color:#fff; border:0}
+.frase-card .btn:hover {filter:brightness(.94); transform:translateY(-2px)}
+body.tema-escuro .frase-card {background:#261e33; border-color:#514064; box-shadow:0 12px 28px rgba(0,0,0,.22)}
+body.tema-escuro .frase-card p {color:#e8dcff}
+body.tema-escuro .frase-card .btn {background:#9b7be8; color:#fff}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.frase-card{min-height:180px}}
+
+html body.tema-escuro section.cvv#emergencia {
+    background: #47385e !important;
+    background-color: #47385e !important;
+    background-image: none !important;
+    color: #ffffff !important;
+}
+
+html body.tema-escuro section.cvv#emergencia h1,
+html body.tema-escuro section.cvv#emergencia h2,
+html body.tema-escuro section.cvv#emergencia p {
+    color: #ffffff !important;
+}
+  </style>
+ </head>  
+ <body>
+  <header>
+   <div class="logo">
+    <img alt="Logo PsicoApoio" src="img/PsicoApoio-removebg-preview.png"/>
+    <h2>
+     PsicoApoio
+    </h2>
+   </div>
+   <nav aria-label="Navega&ccedil;&atilde;o principal">
+    <a href="#inicio">
+     In&iacute;cio
+    </a>
+    <a href="#quizzes">
+     Quiz
+    </a>
+    <a href="#respiracao">
+     Respira&ccedil;&atilde;o
+    </a>
+    <a href="#profissionais">
+     Psic&oacute;logos
+    </a>
+    <a href="#palestras">
+     Palestras
+    </a>
+    <a href="#emergencia">
+     CVV &nearrow;
+    </a>
+   </nav>
+   <button aria-label="Alternar tema" id="tema" title="Alternar tema" type="button">
+    🌙
+   </button>
+  </header>
+  <main id="inicio">
+   <section class="hero">
+    <div class="hero-texto">
+     <h1>
+      Sua sa&uacute;de mental merece aten&ccedil;&atilde;o todos os dias.
+     </h1>
+     <p>
+      O PsicoApoio &eacute; um espa&ccedil;o educativo para ajudar voc&ecirc; a compreender melhor seus sentimentos, cuidar do bem-estar e encontrar caminhos para buscar apoio profissional.
+     </p>
+
+    </div>
+    <div class="frase-card" aria-live="polite">
+     <span class="frase-icone" aria-hidden="true">💜</span>
+     <p id="frase">Um passo de cada vez já é progresso. 🌿</p>
+     <button class="btn" id="nova-frase" type="button">Nova frase ✨</button>
+    </div>
+   </section>
+   <section id="quizzes">
+    <h2 class="title">
+     Quizzes de autoconhecimento
+    </h2>
+    <p class="subtitle">
+     Testes recreativos, sem finalidade de avalia&ccedil;&atilde;o psicol&oacute;gica ou diagn&oacute;stico. Suas respostas ficam apenas nesta p&aacute;gina.
+    </p>
+    <div id="quiz-app">
+    </div>
+    <noscript>
+     Ative o JavaScript para responder aos testes.
+    </noscript>
+   </section>
+
+   <section id="respiracao" style="background:#f7f2ff">
+    <h2 class="title">
+     Uma pausa para respirar
+    </h2>
+    <p class="subtitle">
+     Acompanhe o ciclo 4-4-4-4: inspirar, segurar, expirar e pausar, por quatro segundos em cada etapa. Fa&ccedil;a no seu ritmo, sem for&ccedil;ar. Se sentir desconforto, pare e respire normalmente.
+    </p>
+    <div class="resp-box">
+     <div class="resp-stage">
+      <div id="circulo">
+       Pronto?
+      </div>
+     </div>
+     <p id="resp-status" role="status">
+      Reserve um momento para voc&ecirc;.
+     </p>
+     <button class="btn" id="resp-iniciar" type="button">
+      Iniciar exerc&iacute;cio
+     </button>
+     <button class="btn secondary" disabled="" id="resp-parar" type="button">
+      Parar
+     </button>
+    </div>
+   </section>
+   <section id="profissionais" style="background:#f7f2ff">
+    <h2 class="title">
+     Encontre apoio profissional
+    </h2>
+    <p class="subtitle">
+     Selecione seu estado e sua cidade para visualizar os perfis ilustrativos.
+    </p>
+    <div class="prof-wrap">
+     <div class="searchbox">
+      <h3>
+       🔎 Buscar por localiza&ccedil;&atilde;o
+      </h3>
+      <label for="estado">
+       Estado
+      </label>
+      <select id="estado">
+       <option value="">
+        Selecione o estado
+       </option>
+       <option value="AC">
+        Acre (AC)
+       </option>
+       <option value="AL">
+        Alagoas (AL)
+       </option>
+       <option value="AP">
+        Amap&aacute; (AP)
+       </option>
+       <option value="AM">
+        Amazonas (AM)
+       </option>
+       <option value="BA">
+        Bahia (BA)
+       </option>
+       <option value="CE">
+        Cear&aacute; (CE)
+       </option>
+       <option value="DF">
+        Distrito Federal (DF)
+       </option>
+       <option value="ES">
+        Esp&iacute;rito Santo (ES)
+       </option>
+       <option value="GO">
+        Goi&aacute;s (GO)
+       </option>
+       <option value="MA">
+        Maranh&atilde;o (MA)
+       </option>
+       <option value="MT">
+        Mato Grosso (MT)
+       </option>
+       <option value="MS">
+        Mato Grosso do Sul (MS)
+       </option>
+       <option value="MG">
+        Minas Gerais (MG)
+       </option>
+       <option value="PA">
+        Par&aacute; (PA)
+       </option>
+       <option value="PB">
+        Para&iacute;ba (PB)
+       </option>
+       <option value="PR">
+        Paran&aacute; (PR)
+       </option>
+       <option value="PE">
+        Pernambuco (PE)
+       </option>
+       <option value="PI">
+        Piau&iacute; (PI)
+       </option>
+       <option value="RJ">
+        Rio de Janeiro (RJ)
+       </option>
+       <option value="RN">
+        Rio Grande do Norte (RN)
+       </option>
+       <option value="RS">
+        Rio Grande do Sul (RS)
+       </option>
+       <option value="RO">
+        Rond&ocirc;nia (RO)
+       </option>
+       <option value="RR">
+        Roraima (RR)
+       </option>
+       <option value="SC">
+        Santa Catarina (SC)
+       </option>
+       <option value="SP">
+        S&atilde;o Paulo (SP)
+       </option>
+       <option value="SE">
+        Sergipe (SE)
+       </option>
+       <option value="TO">
+        Tocantins (TO)
+       </option>
+      </select>
+      <label for="cidade">
+       Cidade
+      </label>
+      <select disabled="" id="cidade">
+       <option value="">
+        Selecione primeiro um estado
+       </option>
+      </select>
+      <label for="especialidade">
+       &Aacute;rea de atua&ccedil;&atilde;o
+      </label>
+      <select id="especialidade">
+       <option value="">
+        Especialidade / &aacute;rea
+       </option>
+       <option>
+        Psicologia Cl&iacute;nica
+       </option>
+       <option>
+        Psicologia Escolar/Educacional
+       </option>
+       <option>
+        Psicologia Social
+       </option>
+       <option>
+        Neuropsicologia
+       </option>
+       <option>
+        Psicologia Organizacional e do Trabalho
+       </option>
+      </select>
+      <button class="btn" id="buscar-profissionais" type="button">
+       Buscar exemplos
+      </button>
+      <div aria-live="polite" id="resultados-profissionais">
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="palestras">
+    <h2 class="title">
+     Palestras e conte&uacute;dos
+    </h2>
+    <p class="subtitle">
+     Explore conte&uacute;dos educativos sobre emo&ccedil;&otilde;es, escuta e autoconhecimento.
+    </p>
+    <div class="cards">
+     <div class="card">
+      <div class="icon">
+       🎤
+      </div>
+      <h3>
+       Sa&uacute;de emocional
+      </h3>
+      <p>
+       Como reconhecer emo&ccedil;&otilde;es, falar sobre sentimentos e buscar apoio.
+      </p>
+      <button class="btn secondary abrir-palestra" data-titulo="Sa&uacute;de emocional">
+       Abrir conte&uacute;do
+      </button>
+      <a class="btn secondary palestra-youtube" href="https://youtu.be/-ycImch3y6U?si=pyNqtRpM3NMlGVBG" rel="noopener noreferrer" target="_blank">
+       Assistir palestra no YouTube &nearrow;
+      </a>
+     </div>
+     <div class="card">
+      <div class="icon">
+       💬
+      </div>
+      <h3>
+       Comunica&ccedil;&atilde;o e escuta
+      </h3>
+      <p>
+       Pr&aacute;ticas para melhorar o di&aacute;logo, a empatia e o respeito.
+      </p>
+      <button class="btn secondary abrir-palestra" data-titulo="Comunica&ccedil;&atilde;o e escuta">
+       Abrir conte&uacute;do
+      </button>
+      <a class="btn secondary palestra-youtube" href="https://vt.tiktok.com/ZSg7S3qLR/" rel="noopener noreferrer" target="_blank">
+       Assistir palestra no TikTok &nearrow;
+      </a>
+     </div>
+     <div class="card">
+      <div class="icon">
+       🌱
+      </div>
+      <h3>
+       Autoconhecimento
+      </h3>
+      <p>
+       Atividades para entender melhor pensamentos e emo&ccedil;&otilde;es.
+      </p>
+      <button class="btn secondary abrir-palestra" data-titulo="Autoconhecimento">
+       Abrir conte&uacute;do
+      </button>
+      <a class="btn secondary palestra-youtube" href="https://youtu.be/oAlqaznclUk?is=P-Zycj04vyNM7Pyh" rel="noopener noreferrer" target="_blank">
+       Assistir palestra no YouTube &nearrow;
+      </a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <div aria-labelledby="modal-titulo" aria-modal="true" id="modal-palestra" role="dialog">
+   <div>
+    <button aria-label="Fechar conte&uacute;do" id="modal-fechar" type="button">
+     &times;
+    </button>
+    <h2 id="modal-titulo">
+    </h2>
+    <div id="modal-texto">
+    </div>
+    <p>
+     <small>
+      Conte&uacute;do educativo para leitura. N&atilde;o h&aacute; palestra ao vivo ou inscri&ccedil;&atilde;o dispon&iacute;vel nesta vers&atilde;o.
+     </small>
+    </p>
+   </div>
+  </div>
+   <!-- ================= CVV ================= -->
+
+    <section class="cvv" id="emergencia">
+
+        <h2>Precisa conversar?</h2>
+
+        <h1>CVV - 188</h1>
+
+        <p>
+
+            Atendimento gratuito, sigiloso e disponível 24 horas por dia.
+
+        </p>
+
+        <a href="https://cvv.org.br/" target="_blank">
+
+            <button>
+
+                Acessar Site
+
+            </button>
+
+        </a>
+
+    </section>
+    <footer>
+   <p>
+    &copy; 2026 - PsicoApoio | Promovendo sa&uacute;de mental e bem-estar.
+   </p>
+  </footer>
+  <script>
+   // Tema claro/escuro
+const temaBtn=document.getElementById('tema');
+try{if(localStorage.getItem('psicoapoio-tema')==='escuro')document.body.classList.add('tema-escuro');}catch(e){}
+
+function atualizarBotaoTema(){const escuro=document.body.classList.contains('tema-escuro');temaBtn.textContent=escuro?'☀️':'🌙';temaBtn.setAttribute('aria-label',escuro?'Ativar tema claro':'Ativar tema escuro');temaBtn.setAttribute('title',escuro?'Ativar tema claro':'Ativar tema escuro');}
+atualizarBotaoTema();
+temaBtn.addEventListener('click',()=>{document.body.classList.toggle('tema-escuro');atualizarBotaoTema();try{localStorage.setItem('psicoapoio-tema',document.body.classList.contains('tema-escuro')?'escuro':'claro');}catch(e){}});
+
+// Perfis ilustrativos fictícios; não representam profissionais reais.
+const profissionais=[
+ {nome:'Marina Almeida',area:'Psicologia Clínica',foto:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil ilustrativo com foco em acolhimento emocional, autoconhecimento e manejo do estresse.'},
+ {nome:'Rafael Costa',area:'Psicologia Social',foto:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil ilustrativo voltado a relações, bem-estar e desafios cotidianos.'},
+ {nome:'Camila Ferreira',area:'Neuropsicologia',foto:'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil ilustrativo com interesse em aprendizagem, atenção e estratégias para a rotina.'},
+ {nome:'Lucas Martins',area:'Psicologia Clínica',foto:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil ilustrativo sobre emoções, autoestima e formas de lidar com o estresse.'},
+ {nome:'Beatriz Oliveira',area:'Psicologia Escolar/Educacional',foto:'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil ilustrativo dedicado a temas de aprendizagem, convivência e desenvolvimento.'},
+ {nome:'André Ribeiro',area:'Psicologia Organizacional e do Trabalho',foto:'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil ilustrativo com foco em bem-estar no trabalho, relações e equilíbrio da rotina.'},
+ {nome:'Isabela Santos',area:'Psicologia Social',foto:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil ilustrativo sobre vínculos, comunidade e fortalecimento de redes de apoio.'},
+ {nome:'Pedro Lima',area:'Psicologia Clínica',foto:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil ilustrativo voltado a autoconhecimento, mudanças e habilidades para o dia a dia.'},
+ {nome:'Juliana Rocha',area:'Neuropsicologia',foto:'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil ilustrativo com interesse em processos cognitivos e estratégias de organização.'},
+ {nome:'Gabriel Souza',area:'Psicologia Escolar/Educacional',foto:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil ilustrativo relacionado a desenvolvimento, relações e ambiente educacional.'},
+ {nome:'Sofia Mendes',area:'Psicologia Clínica',foto:'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil fictício voltado à escuta, autoestima e estratégias para o cotidiano.'},
+ {nome:'Thiago Nunes',area:'Psicologia Social',foto:'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil fictício com interesse em vínculos comunitários e redes de apoio.'},
+ {nome:'Fernanda Alves',area:'Neuropsicologia',foto:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil fictício relacionado a atenção, memória e estratégias de organização.'},
+ {nome:'Marcos Vieira',area:'Psicologia Escolar/Educacional',foto:'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil fictício com foco em aprendizagem, convivência e desenvolvimento.'},
+ {nome:'Patrícia Gomes',area:'Psicologia Organizacional e do Trabalho',foto:'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&h=400&q=85',descricao:'Perfil fictício relacionado a bem-estar no trabalho e equilíbrio da rotina.'}
+];
+const estadoSelect=document.getElementById('estado');
+const cidadeSelect=document.getElementById('cidade');
+const resultados=document.getElementById('resultados-profissionais');
+const areaSelect=document.getElementById('especialidade');
+const fallbackFoto='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#eee7fa"/><circle cx="100" cy="72" r="38" fill="#b7a2d8"/><path d="M28 200c4-48 32-73 72-73s68 25 72 73" fill="#8b5cf6"/></svg>');
+let ultimoLocal='',ultimoInicio=-2;
+
+function renderizarProfissionais(){
+  resultados.replaceChildren();
+
+  const uf = estadoSelect.value;
+  const cidade = cidadeSelect.value;
+  const areaEscolhida = areaSelect.value;
+
+  if (!uf || !cidade || !areaEscolhida) {
+    const msg = document.createElement('p');
+    msg.className = 'prof-placeholder';
+    msg.textContent = 'Selecione o estado, a cidade e a área de atuação antes de buscar.';
+    resultados.appendChild(msg);
+    return;
+  }
+
+  const correspondentes = profissionais.filter(item => item.area === areaEscolhida);
+  if (!correspondentes.length) {
+    const msg = document.createElement('p');
+    msg.className = 'prof-placeholder';
+    msg.textContent = 'Não há perfis ilustrativos disponíveis para essa área.';
+    resultados.appendChild(msg);
+    return;
+  }
+
+  const localAtual = `${cidade}-${uf}-${areaEscolhida}`;
+  let inicio = 0;
+  if (localAtual !== ultimoLocal) {
+    let hash = 0;
+    for (let i = 0; i < localAtual.length; i++) {
+      hash = (hash * 31 + localAtual.charCodeAt(i)) >>> 0;
+    }
+    inicio = hash % correspondentes.length;
+    if (ultimoLocal && correspondentes.length > 1 && inicio === ultimoInicio) {
+      inicio = (inicio + 1) % correspondentes.length;
+    }
+    ultimoInicio = inicio;
+    ultimoLocal = localAtual;
+  } else {
+    inicio = Math.min(ultimoInicio, correspondentes.length - 1);
+  }
+
+  const escolhidos = correspondentes.length === 1
+    ? [correspondentes[inicio]]
+    : [correspondentes[inicio], correspondentes[(inicio + 1) % correspondentes.length]];
+
+  const aviso = document.createElement('p');
+  aviso.className = 'notice';
+  aviso.textContent = 'Estes são perfis fictícios para demonstração do site, não profissionais reais.';
+  resultados.appendChild(aviso);
+
+  const lista = document.createElement('div');
+  lista.className = 'prof-resultados';
+
+  escolhidos.forEach(item => {
+    const div = document.createElement('article');
+    div.className = 'prof-perfil';
+
+    const img = document.createElement('img');
+    img.src = item.foto;
+    img.alt = 'Retrato ilustrativo de ' + item.nome;
+    img.loading = 'lazy';
+    img.referrerPolicy = 'no-referrer';
+    img.onerror = () => {
+      img.onerror = null;
+      img.src = fallbackFoto;
+    };
+
+    const conteudo = document.createElement('div');
+    const h = document.createElement('h4');
+    h.textContent = item.nome;
+
+    const area = document.createElement('div');
+    area.className = 'prof-area';
+    area.textContent = item.area;
+
+    const local = document.createElement('p');
+    local.textContent = cidade + ' - ' + uf;
+
+    const desc = document.createElement('p');
+    desc.textContent = item.descricao;
+
+    conteudo.append(h, area, local, desc);
+    div.append(img, conteudo);
+    lista.appendChild(div);
+  });
+
+  resultados.appendChild(lista);
+}
+
+// Mudanças nos filtros limpam os resultados. A busca só ocorre ao clicar no botão.
+estadoSelect.addEventListener('change', async () => {
+  resultados.replaceChildren();
+  ultimoLocal = '';
+  ultimoInicio = -2;
+  const uf = estadoSelect.value;
+  cidadeSelect.disabled = true;
+  cidadeSelect.replaceChildren();
+
+  const initial = document.createElement('option');
+  initial.value = '';
+  initial.textContent = uf ? 'Carregando municípios…' : 'Selecione primeiro um estado';
+  cidadeSelect.appendChild(initial);
+  if (!uf) return;
+
+  try {
+    const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${encodeURIComponent(uf)}/municipios?orderBy=nome`);
+    if (!response.ok) throw new Error('Falha ao consultar o IBGE');
+    const municipios = await response.json();
+
+    cidadeSelect.replaceChildren();
+    const opcao = document.createElement('option');
+    opcao.value = '';
+    opcao.textContent = 'Selecione a cidade';
+    cidadeSelect.appendChild(opcao);
+
+    municipios.forEach(m => {
+      const option = document.createElement('option');
+      option.value = m.nome;
+      option.textContent = m.nome;
+      cidadeSelect.appendChild(option);
+    });
+    cidadeSelect.disabled = false;
+  } catch (error) {
+    cidadeSelect.replaceChildren();
+    const option = document.createElement('option');
+    option.value = '';
+    option.textContent = 'Não foi possível carregar; tente novamente';
+    cidadeSelect.appendChild(option);
+    cidadeSelect.disabled = true;
+  }
+});
+
+cidadeSelect.addEventListener('change', () => resultados.replaceChildren());
+areaSelect.addEventListener('change', () => resultados.replaceChildren());
+
+document.getElementById('buscar-profissionais').addEventListener('click', renderizarProfissionais);
+
+// Quizzes com resultados calculados a partir das respostas
+const perfis={acolhedor:{nome:'Coração acolhedor',emoji:'💜',resumo:'Você valoriza vínculos e costuma perceber o que as pessoas ao seu redor precisam.',forca:'Escutar, aproximar pessoas e criar um ambiente de confiança.',cuidado:'Ajudar é bonito, mas você também merece cuidado. Respeite seus limites.',dica:'Separe um momento da semana para fazer algo só por você.'},criativo:{nome:'Espírito criativo',emoji:'✨',resumo:'Você gosta de imaginar possibilidades e expressar seu jeito único de ver o mundo.',forca:'Encontrar ideias novas e transformar experiências em inspiração.',cuidado:'Você não precisa transformar toda ideia em um projeto perfeito.',dica:'Experimente escrever, desenhar ou criar algo sem se cobrar pelo resultado.'},reflexivo:{nome:'Mente reflexiva',emoji:'🌙',resumo:'Você prefere observar, entender e dar significado às experiências antes de agir.',forca:'Perceber detalhes, analisar situações e fazer escolhas com intenção.',cuidado:'Nem toda escolha precisa de uma resposta perfeita antes do primeiro passo.',dica:'Escolha uma pequena ação possível hoje e permita-se aprender durante o caminho.'},explorador:{nome:'Alma exploradora',emoji:'🌻',resumo:'Você se anima com descobertas e tende a aprender colocando as ideias em movimento.',forca:'Tomar iniciativa, experimentar e enxergar oportunidades.',cuidado:'Entre uma novidade e outra, deixe espaço para descansar e reconhecer seus limites.',dica:'Planeje uma experiência diferente e uma pausa para aproveitar o que viveu.'}};
+const tiposEnergia={companhia:{nome:'Conexão que renova',emoji:'🫶',resumo:'Você costuma recuperar o ânimo em boas conversas e momentos de companhia.',forca:'Encontrar apoio e alegria nas relações.',cuidado:'Escolha companhias com quem você possa ser você mesmo.',dica:'Combine uma conversa tranquila com alguém de confiança.'},quietude:{nome:'Paz na quietude',emoji:'🍃',resumo:'Seu descanso combina com silêncio, espaço pessoal e menos estímulos.',forca:'Reconhecer a importância de uma pausa.',cuidado:'Tempo sozinho pode fazer bem; mantenha também os vínculos que você valoriza.',dica:'Reserve alguns minutos sem telas, com uma música suave ou em silêncio.'},expressao:{nome:'Energia da expressão',emoji:'🎨',resumo:'Você se renova quando pode criar e dar forma ao que sente.',forca:'Transformar sentimentos em expressão pessoal.',cuidado:'Seu momento criativo não precisa ser produtivo nem perfeito.',dica:'Monte uma playlist, escreva livremente ou faça algo com as mãos.'},movimento:{nome:'Renovação em movimento',emoji:'☀️',resumo:'Mudar de ambiente e experimentar atividades costuma trazer um novo fôlego para você.',forca:'Encontrar disposição em pequenas descobertas.',cuidado:'Respeite seu ritmo e não preencha todas as pausas com atividades.',dica:'Faça um passeio curto ou experimente um caminho diferente, se puder.'}};
+
+function questao(texto,alternativas,ordem){return {texto,opcoes:alternativas.map((texto,i)=>({texto,perfil:ordem[i]}))};}
+const quizzes=[{id:'personalidade',nome:'Qual é o seu jeito de ser?',emoji:'✨',descricao:'Nas amizades, nos planos e nas pequenas escolhas: descubra quais traços mais combinam com você.',perfis,perguntas:[questao('Seu sábado ideal teria…',['Uma boa conversa com pessoas queridas.','Tempo para criar algo do meu jeito.','Um livro, um filme ou um momento tranquilo.','Um passeio para conhecer um lugar novo.'],['acolhedor','criativo','reflexivo','explorador']),questao('Quando surge um desafio em grupo, você costuma…',['Analisar as opções antes de decidir.','Propor uma ideia fora do comum.','Tomar iniciativa e testar um caminho.','Ouvir todo mundo e aproximar as pessoas.'],['reflexivo','criativo','explorador','acolhedor']),questao('Um amigo conta que teve um dia difícil. Você…',['Pensa em algo diferente para animá-lo.','Escuta e oferece companhia.','Sugere uma atividade para mudar os ares.','Ajuda a entender o que aconteceu com calma.'],['criativo','acolhedor','explorador','reflexivo']),questao('O que mais chama sua atenção em uma experiência nova?',['A chance de me aventurar.','Os detalhes e o que posso aprender.','As pessoas que vou conhecer.','A inspiração que ela pode trazer.'],['explorador','reflexivo','acolhedor','criativo']),questao('Você recebeu uma tarde livre. Qual plano escolhe?',['Retomar um hobby criativo.','Encontrar alguém de quem sinto saudade.','Fazer algo que ainda não experimentei.','Ter tempo para pensar e organizar minhas ideias.'],['criativo','acolhedor','explorador','reflexivo']),questao('Para tomar uma decisão importante, você prefere…',['Entender os detalhes e comparar caminhos.','Conversar com quem confio.','Imaginar possibilidades diferentes.','Experimentar um primeiro passo.'],['reflexivo','acolhedor','criativo','explorador']),questao('Em um projeto, qual parte mais combina com você?',['Colocar o plano em prática.','Cuidar da colaboração entre as pessoas.','Construir um conceito original.','Pesquisar e organizar as informações.'],['explorador','acolhedor','criativo','reflexivo']),questao('Qual frase você escolheria para hoje?',['Quero entender melhor o que importa para mim.','Quero descobrir algo novo.','Quero estar perto de quem me faz bem.','Quero dar espaço às minhas ideias.'],['reflexivo','explorador','acolhedor','criativo'])]},{id:'energia',nome:'Como você recarrega sua energia?',emoji:'🍃',descricao:'Descubra o tipo de pausa que mais combina com suas preferências no dia a dia.',perfis:tiposEnergia,perguntas:[questao('Depois de uma semana cheia, você prefere…',['Conversar com alguém querido.','Ficar num lugar tranquilo.','Ouvir música ou criar algo.','Sair para um passeio.'],['companhia','quietude','expressao','movimento']),questao('Uma pausa de 20 minutos combina mais com…',['Uma caminhada leve.','Um café e uma conversa.','Um tempo sem barulho e notificações.','Rabiscar ou montar uma playlist.'],['movimento','companhia','quietude','expressao']),questao('Qual ambiente parece mais convidativo agora?',['Um cantinho silencioso.','Um espaço para experimentar ideias.','Uma praça ou um lugar diferente.','A casa de alguém com quem me sinto bem.'],['quietude','expressao','movimento','companhia']),questao('O que costuma deixar um dia mais leve para você?',['Expressar o que sinto de um jeito criativo.','Trocar experiências com alguém.','Mudar um pouco de ambiente.','Diminuir o ritmo e ter espaço pessoal.'],['expressao','companhia','movimento','quietude']),questao('Se pudesse escolher uma atividade agora, seria…',['Encontrar uma pessoa querida.','Conhecer um lugar novo por perto.','Ler ou descansar em silêncio.','Cozinhar, desenhar ou tocar algo por prazer.'],['companhia','movimento','quietude','expressao']),questao('Qual lembrete combina mais com o seu descanso?',['Posso desacelerar.','Posso criar sem cobrança.','Posso buscar uma boa companhia.','Posso descobrir algo fora da rotina.'],['quietude','expressao','companhia','movimento'])]}];
+const app=document.getElementById('quiz-app');
+let atual=null,indice=0,escolhas=[];
+
+function focar(){const titulo=app.querySelector('h1');if(titulo){titulo.tabIndex=-1;titulo.focus({preventScroll:true});}}
+
+function catalogo(){atual=null;
+app.innerHTML='<span class="etiqueta">DESCUBRA MAIS SOBRE VOCÊ</span><h1>Seu jeito, suas escolhas.</h1><p>Não existem respostas certas. Escolha um teste e responda do seu jeito.</p><div class="catalogo"></div>';quizzes.forEach(q=>{const card=document.createElement('article');card.className='quiz-card';
+const icon=document.createElement('span');icon.className='icone';icon.textContent=q.emoji;
+const h=document.createElement('h2');h.textContent=q.nome;
+const p=document.createElement('p');p.textContent=q.descricao;
+const small=document.createElement('small');small.textContent=q.perguntas.length+' perguntas · cerca de 2 minutos';
+const b=document.createElement('button');b.textContent='Começar teste →';b.onclick=()=>{atual=q;indice=0;escolhas=[];
+mostrarPergunta();};card.append(icon,h,p,small,b);
+app.querySelector('.catalogo').appendChild(card);});}
+
+function mostrarPergunta(){const q=atual.perguntas[indice];
+app.innerHTML=`<button class="link" id="catalogo">← Todos os testes</button><span class="etiqueta">${atual.nome}</span><div class="progresso-info"><span>Pergunta ${indice+1} de ${atual.perguntas.length}</span><span>${Math.round((indice+1)/atual.perguntas.length*100)}%</span></div><div class="barra" role="progressbar" aria-label="Progresso do teste" aria-valuemin="0" aria-valuemax="${atual.perguntas.length}" aria-valuenow="${indice+1}"><div style="width:${(indice+1)/atual.perguntas.length*100}%"></div></div><h1>${q.texto}</h1><p>Escolha a alternativa que mais combina com você.</p><div id="respostas" role="group" aria-label="Alternativas"></div><div class="acoes"><button class="secundario" id="voltar" ${indice===0?'disabled':''}>← Anterior</button><button id="proximo">${indice===atual.perguntas.length-1?'Ver meu resultado ✨':'Próxima →'}</button></div>`;q.opcoes.forEach((o,i)=>{const b=document.createElement('button');b.className='opcao';b.textContent=o.texto;b.setAttribute('aria-pressed',escolhas[indice]===i?'true':'false');b.classList.toggle('selecionada',escolhas[indice]===i);b.onclick=()=>{escolhas[indice]=i;
+app.querySelectorAll('.opcao').forEach((el,j)=>{el.classList.toggle('selecionada',i===j);el.setAttribute('aria-pressed',i===j?'true':'false');});};
+app.querySelector('#respostas').appendChild(b);});
+app.querySelector('#proximo').onclick=()=>{if(escolhas[indice]===undefined){const aviso=app.querySelector('.instrucao');if(aviso)aviso.textContent='Selecione uma alternativa para continuar.';else{const p=document.createElement('p');p.className='instrucao';p.textContent='Selecione uma alternativa para continuar.';
+app.querySelector('#respostas').after(p);}return;}if(indice<atual.perguntas.length-1){indice++;
+mostrarPergunta();}else mostrarResultado();};
+app.querySelector('#voltar').onclick=()=>{if(indice>0){indice--;
+mostrarPergunta();}};
+app.querySelector('#catalogo').onclick=()=>{catalogo();focar();};focar();}
+
+function mostrarResultado(){const pontos=Object.fromEntries(Object.keys(atual.perfis).map(id=>[id,0]));atual.perguntas.forEach((p,i)=>{const op=p.opcoes[escolhas[i]];if(op)pontos[op.perfil]++;});
+const max=Math.max(...Object.values(pontos));
+const vencedores=Object.keys(pontos).filter(id=>pontos[id]===max);
+const combinacao=vencedores.length>1;
+app.innerHTML=`<span class="etiqueta">SEU RESULTADO</span><div class="resultado-emoji">${vencedores.map(id=>atual.perfis[id].emoji).join(' ')}</div><h1>${combinacao?'Você combina diferentes jeitos':atual.perfis[vencedores[0]].nome}</h1><p>${combinacao?'Suas escolhas deram o mesmo destaque aos perfis abaixo. Essa mistura também faz parte do seu jeito.':'Pelas suas escolhas neste teste, este foi o perfil que mais apareceu.'}</p><div id="perfis"></div><section class="afinidades"><h2>Como suas respostas se distribuíram</h2><p>Estas porcentagens representam apenas suas escolhas neste teste.</p><div id="distribuicao"></div></section><div class="acoes"><button id="refazer">Refazer teste</button><button id="outros" class="secundario">Explorar outros testes</button></div><a class="inicio" href="#inicio">Voltar ao início</a>`;vencedores.forEach(id=>{const p=atual.perfis[id],s=document.createElement('section');s.className='perfil';
+const h=document.createElement('h2');h.textContent=p.emoji+' '+p.nome;s.appendChild(h);[['',p.resumo],['Seu ponto forte',p.forca],['Um cuidado para lembrar',p.cuidado],['Experimente hoje',p.dica]].forEach(([label,txt])=>{if(label){const sh=document.createElement('h3');sh.textContent=label;s.appendChild(sh);}const para=document.createElement('p');para.textContent=txt;s.appendChild(para);});
+app.querySelector('#perfis').appendChild(s);});Object.entries(pontos).sort((a,b)=>b[1]-a[1]).forEach(([id,n])=>{const pct=Math.round(n/atual.perguntas.length*100),row=document.createElement('div');row.className='afinidade';row.innerHTML=`<div><span>${atual.perfis[id].nome}</span><strong>${n}/${atual.perguntas.length} · ${pct}%</strong></div><div class="barra"><div style="width:${pct}%"></div></div>`;
+app.querySelector('#distribuicao').appendChild(row);});
+app.querySelector('#refazer').onclick=()=>{indice=0;escolhas=[];
+mostrarPergunta();};
+app.querySelector('#outros').onclick=()=>{catalogo();focar();};focar();}
+catalogo();
+
+// Conteúdos educativos em modal
+const conteudos={'Saúde emocional':['Perceber emoções: tente nomear o que sente, sem se julgar. Observe em quais situações esse sentimento aparece.','Uma pausa possível: organize uma pequena atividade de descanso e converse com alguém em quem confia.','Se o sofrimento persiste ou atrapalha sua rotina, procure um profissional. Para conversar com o CVV, ligue 188 ou acesse cvv.org.br.'],'Comunicação e escuta':['Escute com atenção e dê espaço para a pessoa terminar, sem interromper ou comparar experiências.','Fale com respeito: descreva como você se sente e o que precisa. Por exemplo: “Tenho me sentido sobrecarregado e preciso de uma pausa”.','Pergunte: “Você prefere que eu escute ou quer pensar em caminhos comigo?”. Respeite a resposta e os limites da pessoa.'],'Autoconhecimento':['Observe seu dia: anote uma situação, o que sentiu e o que precisava naquele momento. Não é necessário encontrar uma resposta perfeita.','Reconheça seus valores: quais atividades, pessoas e escolhas fazem sentido para você?','Escolha uma pequena ação alinhada ao que importa para você. Os quizzes podem iniciar uma reflexão, mas não definem sua personalidade.']};
+const modal=document.getElementById('modal-palestra');
+let ultimoFoco=null;
+
+function abrirPalestra(titulo){ultimoFoco=document.activeElement;
+document.getElementById('modal-titulo').textContent=titulo;
+const corpo=document.getElementById('modal-texto');corpo.replaceChildren();(conteudos[titulo]||[]).forEach(t=>{const p=document.createElement('p');p.textContent=t;corpo.appendChild(p);});
+modal.style.display='flex';
+document.getElementById('modal-fechar').focus();}
+function fecharPalestra(){modal.style.display='none';if(ultimoFoco)ultimoFoco.focus();}document.querySelectorAll('.abrir-palestra').forEach(b=>b.addEventListener('click',()=>abrirPalestra(b.dataset.titulo)));
+document.getElementById('modal-fechar').addEventListener('click',fecharPalestra);
+modal.addEventListener('click',e=>{if(e.target===modal)fecharPalestra();});
+document.addEventListener('keydown',e=>{if(modal.style.display!=='flex')return;if(e.key==='Escape')fecharPalestra();});
+
+// Respiração guiada: quatro fases de quatro segundos, quatro ciclos
+let respTimer=null,respEtapa=0,respTempo=4,respCiclos=0;
+const etapas=['Inspirar','Segurar','Expirar','Pausar'],circulo=document.getElementById('circulo'),statusResp=document.getElementById('resp-status'),iniciar=document.getElementById('resp-iniciar'),parar=document.getElementById('resp-parar');
+
+function atualizarResp(){circulo.textContent=etapas[respEtapa]+' · '+respTempo;circulo.style.transform=respEtapa<2?'scale(1.3)':'scale(1)';statusResp.textContent='Ciclo '+(respCiclos+1)+' de 4 · '+etapas[respEtapa];}
+function pararResp(concluido=false){if(respTimer!==null)clearInterval(respTimer);respTimer=null;circulo.style.transform='scale(1)';circulo.textContent=concluido?'Concluído 💜':'Pronto?';statusResp.textContent=concluido?'Sua pausa terminou. Continue no seu ritmo.':'Exercício parado. Respire no seu ritmo.';
+iniciar.disabled=false;parar.disabled=true;}iniciar.addEventListener('click',()=>{if(respTimer!==null)return;respEtapa=0;respTempo=4;respCiclos=0;
+iniciar.disabled=true;parar.disabled=false;
+atualizarResp();respTimer=setInterval(()=>{respTempo--;if(respTempo===0){respTempo=4;respEtapa=(respEtapa+1)%4;if(respEtapa===0)respCiclos++;if(respCiclos===4){pararResp(true);return;}}atualizarResp();},1000);});parar.addEventListener('click',()=>pararResp());
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&respTimer!==null)pararResp();});
+
+// Formulário demonstrativo: não envia dados a nenhum servidor
+  </script>
+  <script>
+   /* Recuperação do catálogo caso algum script anterior interrompa a inicialização dos quizzes. */
+(function(){
+ const app=document.getElementById('quiz-app');
+ if(!app || app.children.length) return;
+ const tests=[
+  {title:'Qual é o seu jeito de ser?',desc:'Explore traços que combinam com suas escolhas.',qs:[
+   ['Seu sábado ideal teria…',['Uma conversa com pessoas queridas','Criar algo novo','Um momento tranquilo','Conhecer um lugar novo'],['Acolhedor','Criativo','Reflexivo','Explorador']],
+   ['Quando surge um desafio, você…',['Ouve e aproxima as pessoas','Propõe uma ideia diferente','Analisa antes de agir','Experimenta um caminho'],['Acolhedor','Criativo','Reflexivo','Explorador']],
+   ['Você prefere uma tarde livre para…',['Encontrar alguém querido','Retomar um hobby criativo','Organizar pensamentos','Fazer algo novo'],['Acolhedor','Criativo','Reflexivo','Explorador']]
+  ]},
+  {title:'Como você recarrega sua energia?',desc:'Descubra que tipo de pausa combina com suas preferências.',qs:[
+   ['Depois de uma semana cheia, você prefere…',['Conversar com alguém querido','Ficar em silêncio','Criar ou ouvir música','Sair para passear'],['Companhia','Quietude','Expressão','Movimento']],
+   ['Uma pausa curta combina mais com…',['Uma caminhada leve','Um café e conversa','Menos barulho e notificações','Desenhar ou montar uma playlist'],['Movimento','Companhia','Quietude','Expressão']],
+   ['O que deixa seu dia mais leve?',['Expressar-se criativamente','Trocar experiências','Mudar de ambiente','Desacelerar'],['Expressão','Companhia','Movimento','Quietude']]
+  ]}
+ ];
+ app.innerHTML='<span class="etiqueta">DESCUBRA MAIS SOBRE VOCÊ</span><h1>Seu jeito, suas escolhas.</h1><p>Testes recreativos de autoconhecimento, sem respostas certas ou finalidade diagnóstica.</p><div class="catalogo"></div>';
+ const catalogo=app.querySelector('.catalogo');
+ tests.forEach((t,ti)=>{const card=document.createElement('article');card.className='quiz-card';
+const h=document.createElement('h2');h.textContent=(ti?'🍃 ':'✨ ')+t.title;
+const p=document.createElement('p');p.textContent=t.desc;
+const b=document.createElement('button');b.textContent='Começar teste →';card.append(h,p,b);catalogo.append(card);
+ b.onclick=()=>{let i=0,answers=[];
+
+function show(){app.replaceChildren();
+const h=document.createElement('h1');h.textContent=t.title;
+const prog=document.createElement('p');prog.textContent='Pergunta '+(i+1)+' de '+t.qs.length;
+const q=document.createElement('h2');q.textContent=t.qs[i][0];
+app.append(h,prog,q);t.qs[i][1].forEach((opt,j)=>{const ob=document.createElement('button');ob.className='opcao';ob.textContent=opt;ob.style.cssText='display:block;width:100%;margin:10px 0;text-align:left;background:var(--suave);color:inherit;border:1px solid var(--borda)';ob.onclick=()=>{answers.push(j);i++;if(i<t.qs.length)show();else result();};
+app.append(ob);});}
+ 
+function result(){const tally={};answers.forEach((a,k)=>{const name=t.qs[k][2][a];tally[name]=(tally[name]||0)+1;});
+const winner=Object.keys(tally).sort((a,b)=>tally[b]-tally[a])[0];
+app.innerHTML='<span class="etiqueta">SEU RESULTADO</span><h1>'+winner+'</h1><p>Este resultado é um convite à reflexão, não uma definição da sua personalidade.</p><button id="again">Refazer teste</button> <button id="more">Explorar outros testes</button>';
+app.querySelector('#again').onclick=()=>{i=0;answers=[];show();};
+app.querySelector('#more').onclick=()=>location.hash='quizzes';}
+ show();};
+ });
+})();
+  </script>
+
+<script>
+(function () {
+  const frasesMotivacionais = [
+    "Você é mais forte do que imagina. 💙",
+    "Um passo de cada vez já é progresso. 🌿",
+    "Cuidar de si mesmo também é uma prioridade. ✨",
+    "Respire. Dias difíceis também passam. ☀️",
+    "Você merece descanso e paz. 🌸",
+    "A sua história ainda está sendo escrita. 📖",
+    "Cada pequeno avanço importa. 💚",
+    "Não tenha medo de pedir ajuda quando precisar. 🤝",
+    "Hoje é uma nova oportunidade para recomeçar. 🌈",
+    "Você já superou muitos desafios até aqui. ⭐"
+  ];
+  let fraseAnterior = -1;
+  const botao = document.getElementById('nova-frase');
+  const texto = document.getElementById('frase');
+  if (botao && texto) {
+    botao.addEventListener('click', function () {
+      let indice;
+      do { indice = Math.floor(Math.random() * frasesMotivacionais.length); }
+      while (frasesMotivacionais.length > 1 && indice === fraseAnterior);
+      fraseAnterior = indice;
+      texto.textContent = frasesMotivacionais[indice];
+    });
+  }
+})();
+</script>
+ </body>
+</html>
